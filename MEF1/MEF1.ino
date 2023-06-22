@@ -5,8 +5,8 @@ typedef enum{
   BUTTON_RAISING,
 } debounceState_t;
 #define TEMPO 40
-unsigned long Tiempo_Ahora = 0;
 #define In 7
+unsigned long Tiempo_Ahora = 0;
 debounceState_t Actual_State;
 
 void debounceFSM_init();
