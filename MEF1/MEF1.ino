@@ -5,7 +5,7 @@ typedef enum{
   BUTTON_RAISING,
 } debounceState_t;
 
-#define TEMPO 40
+#define TEMPO 1500
 #define In 7
 unsigned long Tiempo_Ahora = 0;
 debounceState_t Actual_State;
@@ -54,6 +54,7 @@ void debounceFSM_update(){
   switch(Actual_State){
 
     case BUTTON_P:
+      Tiempo_Ahora = millis();
       if(digitalRead(In)==HIGH){
         Actual_State = BUTTON_RAISING;
       }
@@ -72,6 +73,7 @@ void debounceFSM_update(){
       break;
 
     case BUTTON_UNP:
+        Tiempo_Ahora = millis();
         if(digitalRead(In)){
           Actual_State = BUTTON_FALLING;
         }
